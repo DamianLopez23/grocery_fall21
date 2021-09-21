@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Component } from 'react';
+import GroceryList from './components/groceries/GroceryList';
+class App extends Component {
+  state = {
+    groceries: [
+      { id: 1, item: "Paper Towels", complete: true },
+      { id: 2, item: "Toilet Paper", complete: false },
+      { id: 3, item: "Apples", complete: false },
+    ]
+  }
+  render () {
+    const { groceries } = this.state
+    // const todos = this.state.todos
+    return (
+      <>
+        <GroceryList groceries={groceries}/>
+      </>
+    )
+  }
 }
-
 export default App;
