@@ -1,17 +1,11 @@
-
 import {useState, useEffect } from 'react';
-
 const GroceryForm = ({ addGrocery, id, item, price, updateGrocery, setEditing }) => {
   const [grocery, setGrocery] = useState({ item: "", price: ""})
-
   useEffect( () => {
     if (id) {
       setGrocery({ item, price })
     }
   }, [])
-
-
-
 const handleSubmit = (e) => {
   e.preventDefault();
   if (id) {
@@ -21,7 +15,6 @@ const handleSubmit = (e) => {
     addGrocery(grocery)
   }
 }
-
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -31,7 +24,6 @@ const handleSubmit = (e) => {
           placeholder="item name"
         onChange={(e) => setGrocery({...grocery, item: e.target.value})}
     />
-
   </form>
     <form onSubmit={handleSubmit}>
       <input
@@ -46,4 +38,3 @@ const handleSubmit = (e) => {
     )
   }
 export default  GroceryForm;
-
